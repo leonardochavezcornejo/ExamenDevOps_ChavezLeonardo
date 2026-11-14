@@ -1,0 +1,147 @@
+{
+  "info": {
+    "_postman_id": "c7f4df7a-2c5e-4f4f-b0e4-0d5ab4e0a901",
+    "name": "UniversidadBackend-Alumno-API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:9595/universidad-backend"
+    },
+    {
+      "key": "alumnoId",
+      "value": "1"
+    },
+    {
+      "key": "alumnoName",
+      "value": "Carlos"
+    }
+  ],
+  "item": [
+    {
+      "name": "Alumno - Create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nameAlumno\": \"Carlos\",\n  \"lastNameAlumno\": \"Perez\",\n  \"dniAlumno\": \"12345678\",\n  \"emailAlumno\": \"carlos.perez@mail.com\",\n  \"birthDateAlumno\": \"2000-05-10\",\n  \"enabledAlumno\": true\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/alumnos/create",
+          "host": ["{{baseUrl}}"],
+          "path": ["alumnos", "create"]
+        }
+      }
+    },
+    {
+      "name": "Alumno - Update",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nameAlumno\": \"Carlos Actualizado\",\n  \"lastNameAlumno\": \"Perez\",\n  \"dniAlumno\": \"12345678\",\n  \"emailAlumno\": \"carlos.perez@mail.com\",\n  \"birthDateAlumno\": \"2000-05-10\",\n  \"enabledAlumno\": true\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/alumnos/update/{{alumnoId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["alumnos", "update", "{{alumnoId}}"]
+        }
+      }
+    },
+    {
+      "name": "Alumno - Delete",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/alumnos/delete/{{alumnoId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["alumnos", "delete", "{{alumnoId}}"]
+        }
+      }
+    },
+    {
+      "name": "Alumno - Read All",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/alumnos/readAll",
+          "host": ["{{baseUrl}}"],
+          "path": ["alumnos", "readAll"]
+        }
+      }
+    },
+    {
+      "name": "Alumno - Read By Id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/alumnos/readById/{{alumnoId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["alumnos", "readById", "{{alumnoId}}"]
+        }
+      }
+    },
+    {
+      "name": "Alumno - Find By Name",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/alumnos/find/byName?name={{alumnoName}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["alumnos", "find", "byName"],
+          "query": [
+            {
+              "key": "name",
+              "value": "{{alumnoName}}"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Alumno - Find By Name Is Enabled",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/alumnos/find/byNameIsEnabled?name={{alumnoName}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["alumnos", "find", "byNameIsEnabled"],
+          "query": [
+            {
+              "key": "name",
+              "value": "{{alumnoName}}"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
